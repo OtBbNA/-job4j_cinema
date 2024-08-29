@@ -6,8 +6,8 @@
     <title>Кинотеатр</title>
 </head>
 <body class="body">
-<div class="container">
-    <div class="header">
+<div class="wrapper">
+    <header class="header">
         <div class="header__logo">
             <div class="header__logo__name">
                 <p>Кинотеатр "Кинобара"</p>
@@ -26,17 +26,53 @@
                 <a href="login.html">Войти</a>
             </div>
         </div>
-    </div>
-    <div class="navigation">
+    </header>
+    <section class="carousel">
+        <div class="carousel__elements">
+            <div class="carousel__element">
+                <div class="short__name">
+                    <p>Название фильма</p>
+                </div>
+                <div class="short__image">
+                    <img src="#" alt="#">
+                </div>
+            </div>
+        </div>
+        <div class="carousel__button__nav">
+            <button class="carousel__button__prev">
+                <img width="50px" src="#" alt="#">
+            </button>
+            <button class="carousel__button__next">
+                <img width="50px" src="#" alt="#">
+            </button>
+        </div>
+    </section>
+    <nav class="navigation">
         <a href="index.html">Главная</a>
         <a href="#">Расписание</a>
         <a href="#">Кинотека</a>
-    </div>
-    <div class="footer">
+    </nav>
+    <section class="list">
+        <div class="list__card">
+            <div class="list__card__img">
+                <img src="#" alt="#">
+            </div>
+            <span class="list__card__name">
+                    Название фильма
+                </span>
+            <span class="list__card__genre">
+                    <p>Жанр</p>
+                </span>
+            <a href="#" class="list__card__buy">
+                Купить билет
+            </a>
+        </div>
+    </section>
+    <footer class="footer">
         <a href="#">GitHub</a>
         <a href="#">Сайт</a>
         <a href="#">Job4j</a>
-    </div>
+    </footer>
 </div>
 </body>
 </html>
