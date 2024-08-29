@@ -1,0 +1,133 @@
+@font-face {
+    font-family: "Shantell Sans";
+    src: url("../fonts/ShantellSans-SemiBold.ttf");
+}
+
+:root {
+    --black-color: #000000;
+    --white-color: #FFFFFF;
+    --magenta-color: #9A4063;
+
+    --bg-color-bisque-light: #FFF0DF;
+    --bg-color-blue: #295369;
+    --bg-color-blue-light: #B7C8D0;
+    --bg-color-green: #2D754F;
+    --bg-color-green-light: #B4DAC5;
+    --bg-color-grey-light: #c0b7ad;
+    --bg-color-magenta: #9A4063;
+    --bg-color-magenta-light: #EEC4D4;
+
+
+    --font-family-main: 'Shantell Sans', sans-serif;
+
+    --font-size-light: 20px;
+    --font-size-medium: 30px;
+    --font-size-height: 50px;
+    --font-size-h4: 32px;
+    --font-size-h3: 36px;
+    --font-size-h2: 48px;
+    --font-size-h1: 58px;
+
+    --width-size: 1100px;
+}
+
+/* Общие */
+
+* {
+    box-sizing: border-box;
+
+    margin: 0;
+    padding: 0;
+
+    text-decoration: none;
+}
+
+.body {
+    background-color: var(--bg-color-blue);
+    font-family: var(--font-family-main);
+}
+
+.wrapper {
+    margin: auto;
+
+    width: var(--width-size);
+}
+
+/* Хедер */
+
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: var(--bg-color-blue-light);
+}
+
+.header__logo {
+    display: flex;
+    flex-direction: row;
+    align-content: flex-start;
+
+    width: 100%;
+}
+
+.header__logo__img {
+    align-self: center;
+
+    margin-left: 5%;
+    margin-top: 3.5%;
+    margin-bottom: 1%;
+    padding: 10px;
+
+    width: 100px;
+}
+
+.header__logo__name {
+    margin-left: 10%;
+    margin-top: 1%;
+
+    text-align: center;
+    font-size: var(--font-size-height);
+}
+
+.header__logo__name p:nth-child(2) {
+    margin-top: 3%;
+
+    text-align: center;
+    font-size: var(--font-size-medium);
+}
+
+.header__info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    margin-top: 1%;
+
+    width: 90%;
+}
+
+.header__info__address {
+    height: 35px;
+}
+
+.header__info__phone {
+    height: 35px;
+}
+
+.header__info__registration {
+    height: 35px;
+}
+
+.header__info__registration>a {
+    margin-left: 25px;
+
+    text-decoration: none;
+    color: var(--black-color);
+}
+
+.header__info__registration>a:hover {
+    text-decoration: none;
+    color: var(--black-color);
+}
