@@ -1,61 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{css/indexStyle.css}">
+
     <title>Кинотеатр</title>
 </head>
 <body class="body">
 <div class="wrapper">
-    <header class="header">
-        <div class="header__logo">
-            <div class="header__logo__img">
-                <img width="100%" th:src="@{img/capybara-logo.svg}" alt="#">
-            </div>
-            <div class="header__logo__name">
-                <p>Кинотеатр "Кинобара"</p>
-                <p>место, где капибары смотрят фильмы</p>
-            </div>
-        </div>
-        <div class="header__info">
-            <div class="header__info__address">
-                <p>Мы находимся: л.Дубовый, подлесок Еланина, нора 16</p>
-            </div>
-            <div class="header__info__phone">
-                <p>+7(XXX)XXX-XX-XX</p>
-            </div>
-            <div class="header__info__registration">
-                <a href="registration.html">Регистрация</a>
-                <a href="login.html">Войти</a>
-            </div>
-        </div>
-    </header>
+    <header class="header" th:insert="blocks/header"></header>
     <section class="carousel">
-        <div class="carousel__elements">
+        <div class="carousel__elements" >
             <div class="carousel__element">
                 <div class="short__name">
-                    <p>Название фильма</p>
+                    <span></span>
                 </div>
                 <div class="short__image">
-                    <img src="#" alt="#">
+                    <img alt="#">
                 </div>
             </div>
         </div>
         <div class="carousel__button__nav">
             <button class="carousel__button__prev">
-                <img width="50px" src="#" alt="#">
+                <img width="50px" th:src="@{img/arrow-left.svg}" alt="#">
             </button>
             <button class="carousel__button__next">
-                <img width="50px" src="#" alt="#">
+                <img width="50px" th:src="@{img/arrow-right.svg}" alt="#">
             </button>
         </div>
     </section>
-    <nav class="navigation">
-        <a href="index.html">Главная</a>
-        <a href="#">Расписание</a>
-        <a href="#">Кинотека</a>
-    </nav>
+    <nav class="navigation" th:insert="blocks/nav"></nav>
     <section class="list">
         <div class="list__card">
             <div class="list__card__img">
@@ -72,11 +47,7 @@
             </a>
         </div>
     </section>
-    <footer class="footer">
-        <a href="#">GitHub</a>
-        <a href="#">Сайт</a>
-        <a href="#">Job4j</a>
-    </footer>
+    <footer class="footer" th:insert="blocks/footer"></footer>
 </div>
 </body>
 </html>

@@ -131,3 +131,192 @@
     text-decoration: none;
     color: var(--black-color);
 }
+
+/* Карусель */
+
+.carousel {
+    padding-top: 2%;
+
+    height: 400px;
+
+    background-color: var(--bg-color-bisque-light);
+}
+
+.carousel__element {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: var(--width-size);
+
+    background-color: var(--bg-color-bisque-light);
+    opacity: 0;
+    z-index: 0;
+    transform: translateX(0);
+    transition: 0.4s;
+}
+
+.short__name {
+    display: grid;
+
+    margin-left: 10%;
+    margin-right: 5%;
+
+    text-align: center;
+    font-size: var(--font-size-height);
+}
+
+.short__image {
+    margin-right: 10%;
+}
+
+.carousel__button__nav {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+
+    border: none;
+
+    z-index: 10;
+}
+
+.carousel__button__prev {
+    height: 360px;
+    width: 100px;
+
+    background-color: transparent;
+    border: none;
+
+    outline: 0 !important;
+}
+
+.carousel__button__next {
+    height: 360px;
+    width: 100px;
+
+    background-color: transparent;
+    border: none;
+
+    outline: 0 !important;
+}
+
+/* Навигация */
+
+.navigation {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+
+    height: 35px;
+
+    background-color: var(--bg-color-blue-light);
+}
+
+.navigation>a {
+    margin-left: 30px;
+
+    font-size: var(--font-size-light);
+    text-decoration: none;
+    color: var(--black-color);
+}
+
+.navigation>a:hover {
+    text-decoration: none;
+    color: var(--black-color);
+}
+
+/* Карточки */
+
+.list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    padding-bottom: 1%;
+
+    background-color: var(--bg-color-bisque-light);
+}
+
+.list__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-top: 1%;
+    padding: 1%;
+
+    width: 250px;
+
+    border-radius: 5px;
+
+    background-color: var(--bg-color-blue-light);
+}
+
+.list__card__img {
+    width: 200px;
+    height: 300px;
+}
+
+.list__card__img>img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: -50 0;
+}
+
+.list__card__img>span {
+    text-align: center;
+}
+
+.list__card__buy {
+    display: block;
+
+    margin-bottom: 11px;
+
+    width: 70%;
+
+    border-radius: 10px;
+
+    background-color: var(--bg-color-green);
+
+    text-align: center;
+    color: var(--white-color);
+    text-decoration: none;
+}
+
+.list__card__buy:hover {
+    background-color: var(--bg-color-green-light);
+
+    color: var(--black-color);
+    text-decoration: none;
+}
+
+/* Подвал */
+
+.footer {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+
+    height: 35px;
+
+    background-color: var(--bg-color-blue-light);
+}
+
+.footer>a {
+    margin-left: 30px;
+
+    font-size: var(--font-size-light);
+    color: var(--black-color);
+    text-decoration: none;
+}
+
+.footer>a:hover {
+    color: var(--black-color);
+    text-decoration: none;
+}
