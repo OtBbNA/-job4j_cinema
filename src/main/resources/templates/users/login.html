@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/indexStyle.css}">
+    <link rel="stylesheet" th:href="@{/css/loginStyle.css}">
+
+    <title>Вход</title>
+</head>
+<body class="body">
+<div class="wrapper">
+    <header class="header" th:insert="blocks/header"></header>
+    <nav class="navigation" th:insert="blocks/nav"></nav>
+    <section class="login__window">
+        <form class="mt-3" method="post">
+            <div class="login__window__container">
+                <label for="email" class="form-label"><b>Почта</b></label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="ivan@mail.ru" required>
+            </div>
+            <div class="login__window__container">
+                <label for="password" class="form-label"><b>Пароль</b></label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <div class="login__window__button__container">
+                <a class="login__window__button__cancel" href="index.html">Отмена</a>
+                <button class="login__window__button__accept" type="submit">Войти</button>
+            </div>
+            <div class="login__window__registration">
+                <p>Не зарегистрированы? <span><a href="registration.html">Зарегистрироваться</a></span></p>
+            </div>
+        </form>
+    </section>
+    <footer class="footer" th:insert="blocks/footer"></footer>
+</div>
+</body>
+</html>
