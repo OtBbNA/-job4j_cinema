@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/indexStyle.css}">
+    <link rel="stylesheet" th:href="@{/css/scheduleStyle.css}">
+
+    <title>Расписание</title>
+</head>
+
+<body class="body">
+<div class="wrapper">
+    <header class="header" th:insert="blocks/header"></header>
+    <nav class="navigation" th:insert="blocks/nav"></nav>
+    <section class="schedule__list">
+        <a class="schedule__list__card__buy" href="/">
+            <div class="schedule__time__position">
+                <div class="schedule__time">
+                    <span>6 : 50</span>
+                </div>
+                <div class="schedule__time">
+                    <span>8 : 40</span>
+                </div>
+            </div>
+            <div class="schedule__info__position">
+                <div class="schedule__info__name">
+                    <span class="schedule__info__name__position">Капуцин с бульвара Человеков</span>
+                    <span class="schedule__info__name__position">(1995)</span>
+                </div>
+                <div class="schedule__info__age_genre">
+                    <span class="schedule__info__age_genre__position">16+</span>
+                    <span class="schedule__info__age_genre__position">Комедия</span>
+                </div>
+                <div class="schedule__info__age_genre">
+                    <span class="schedule__info__age_genre__position">Берлога 3</span>
+                </div>
+            </div>
+        </a>
+    </section>
+    <footer class="footer" th:insert="blocks/footer"></footer>
+</div>
+</body>
+</html>

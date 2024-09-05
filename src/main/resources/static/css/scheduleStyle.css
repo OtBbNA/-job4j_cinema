@@ -1,0 +1,62 @@
+.schedule__list {
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    padding: 1%;
+
+    background-color: var(--bg-color-bisque-light);
+}
+
+.schedule__time__position {
+    display: flex;
+}
+
+.schedule__time {
+    margin-right: 10px;
+    padding: 4px 15px 0px;
+
+    height: 34px;
+
+    border-radius: 5px;
+
+    background-color: var(--bg-color-green);
+
+    color: var(--white-color);
+}
+
+.schedule__info__position {
+    display: flex;
+    flex-direction: column;
+
+    margin-left: 1%;
+}
+
+.schedule__list__card__buy {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: center;
+
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-top: 1%;
+    padding: 1%;
+
+    width: 98%;
+
+    border-radius: 5px;
+
+    background-color: var(--bg-color-blue-light);
+
+    text-decoration: none;
+    color: var(--black-color);
+}
+
+.schedule__list__card__buy:hover {
+    text-decoration: none;
+    color: var(--black-color);
+}
+
+span {
+    display: inline-block;
+}
