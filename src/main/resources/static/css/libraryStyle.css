@@ -1,0 +1,32 @@
+.library__list {
+    justify-content: space-around;
+
+    padding: 1%;
+
+    background-color: var(--bg-color-bisque-light);
+}
+
+.library__list__card {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    padding: 1%;
+
+    width: 100%;
+
+    border-radius: 5px;
+
+    background-color: var(--bg-color-blue-light);
+}
+
+.library__list__card__img {
+    width: 25%;
+}
+
+.library__list__card__img>img {
+    padding-right: 10px;
+
+    width: 200px;
+}
