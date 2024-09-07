@@ -15,7 +15,7 @@
     <header class="header" th:insert="blocks/header"></header>
     <nav class="navigation" th:insert="blocks/nav"></nav>
     <section class="schedule__list">
-        <a class="schedule__list__card__buy" href="/">
+        <a class="schedule__list__card__buy" th:href="@{/schedule/ticket}">
             <div class="schedule__time__position">
                 <div class="schedule__time">
                     <span>6 : 50</span>
@@ -26,15 +26,15 @@
             </div>
             <div class="schedule__info__position">
                 <div class="schedule__info__name">
-                    <span class="schedule__info__name__position">Капуцин с бульвара Человеков</span>
-                    <span class="schedule__info__name__position">(1995)</span>
+                    <span class="schedule__info__name__position">Название фильма</span>
+                    <span class="schedule__info__name__position">Год</span>
                 </div>
                 <div class="schedule__info__age_genre">
-                    <span class="schedule__info__age_genre__position">16+</span>
-                    <span class="schedule__info__age_genre__position">Комедия</span>
+                    <span class="schedule__info__age_genre__position">Возраст</span>
+                    <span class="schedule__info__age_genre__position">Жанр</span>
                 </div>
                 <div class="schedule__info__age_genre">
-                    <span class="schedule__info__age_genre__position">Берлога 3</span>
+                    <span class="schedule__info__age_genre__position">Зал</span>
                 </div>
             </div>
         </a>

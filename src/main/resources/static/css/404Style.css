@@ -1,0 +1,17 @@
+.error {
+    justify-content: space-around;
+
+    padding: 1%;
+
+    background-color: var(--bg-color-bisque-light);
+
+    text-align: center;
+}
+
+.error__head {
+    color: var(--bg-color-magenta);
+}
+
+.error__text {
+    margin-bottom: 5px;
+}

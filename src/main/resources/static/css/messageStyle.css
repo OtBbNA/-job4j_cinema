@@ -1,0 +1,9 @@
+.message {
+    background-color: var(--bg-color-bisque-light);
+
+    text-align: center;
+}
+
+.message__text {
+    margin-bottom: 0px;
+}
