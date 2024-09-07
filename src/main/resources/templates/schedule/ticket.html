@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/indexStyle.css}">
+    <link rel="stylesheet" th:href="@{/css/ticketStyle.css}">
+
+    <title>Приобрести билет</title>
+</head>
+
+<body class="body">
+<div class="wrapper">
+    <header class="header" th:insert="blocks/header"></header>
+    <nav class="navigation" th:insert="blocks/nav"></nav>
+    <div class="tiket__body">
+        <div class="shedule__ticket">
+            <div class="frame">
+                <div class="frame__halls">
+                    <div class="frame__halls__hall"></div>
+                    <div class="frame__halls__hall"></div>
+                    <div class="frame__halls__hall"></div>
+                    <div class="frame__halls__hall"></div>
+                    <div class="frame__halls__hall"></div>
+                    <div class="frame__halls__hall"></div>
+                    <div class="frame__halls__hall"></div>
+                    <div class="frame__halls__hall"></div>
+                    <div class="frame__halls__hall"></div>
+                    <div class="frame__halls__hall"></div>
+                    <div class="frame__halls__hall"></div>
+                    <div class="frame__halls__hall"></div>
+                </div>
+                <div class="frame__body">
+                    <div class="frame__body__smallpart__left"></div>
+                    <div class="frame__body__bigpart__left">
+                        <h3>Кинотеатр "Кинобара"</h3>
+                        <p>Фильм: <span>Название фильма</span> <span>год</span></p>
+                        <p>Жанр: <span>Жанр</span></p>
+                        <p>Начало сеанса: <span>Время начала</span></p>
+                        <p>Конец сеанса: <span>Время конца</span></p>
+                        <p>Возрастное ограничение: <span>Возраст</span></p>
+                        <p>Ряд: <Select>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </Select> Место: <Select>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="1">6</option>
+                            <option value="2">7</option>
+                            <option value="3">8</option>
+                            <option value="4">9</option>
+                            <option value="5">10</option>
+                        </Select> Зал: <span>Название зала</span></p>
+                    </div>
+                    <div class="frame__body__bigpart__right">
+                        <img src="{}" alt="#">
+                    </div>
+                    <div class="frame__body__smallpart__right"></div>
+                </div>
+                <div class="frame__halls">
+                    <div class="frame__halls__hall"></div>
+                    <div class="frame__halls__hall"></div>
+                    <div class="frame__halls__hall"></div>
+                    <div class="frame__halls__hall"></div>
+                    <div class="frame__halls__hall"></div>
+                    <div class="frame__halls__hall"></div>
+                    <div class="frame__halls__hall"></div>
+                    <div class="frame__halls__hall"></div>
+                    <div class="frame__halls__hall"></div>
+                    <div class="frame__halls__hall"></div>
+                    <div class="frame__halls__hall"></div>
+                    <div class="frame__halls__hall"></div>
+                </div>
+            </div>
+            <div class="submit">
+                <a class="submit__cancel" th:href="@{/schedule/schedule}">Отмена</a>
+                <button class="submit__accept" type="submit">Приобрести билет</button>
+            </div>
+        </div>
+    </div>
+    <footer class="footer" th:insert="blocks/footer"></footer>
+</div>
+</body>
+</html>
