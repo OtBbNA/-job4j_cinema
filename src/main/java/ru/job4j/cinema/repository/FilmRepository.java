@@ -9,5 +9,5 @@ public interface FilmRepository {
 
     Collection<Film> findAll();
 
-    Optional<Film> findById();
+    Optional<Film> findById(int id);
 }

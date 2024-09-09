@@ -3,7 +3,7 @@ package ru.job4j.cinema.model;
 import java.util.Map;
 import java.util.Objects;
 
-public class Tiket {
+public class Ticket {
 
     public static final Map<String, String> COLUMN_MAPPING = Map.of(
             "id", "id",
@@ -23,10 +23,10 @@ public class Tiket {
 
     private int userId;
 
-    public Tiket() {
+    public Ticket() {
     }
 
-    public Tiket(int id, int sessionId, int rowNumber, int placeNumber, int userId) {
+    public Ticket(int id, int sessionId, int rowNumber, int placeNumber, int userId) {
         this.id = id;
         this.sessionId = sessionId;
         this.rowNumber = rowNumber;
@@ -82,8 +82,8 @@ public class Tiket {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Tiket tiket = (Tiket) o;
-        return id == tiket.id;
+        Ticket ticket = (Ticket) o;
+        return id == ticket.id;
     }
 
     @Override
