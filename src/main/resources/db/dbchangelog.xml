@@ -12,4 +12,5 @@
     <include file="scripts/005_ddl_create_film_sessions_table.sql" relativeToChangelogFile="true"/>
     <include file="scripts/006_ddl_create_users_table.sql" relativeToChangelogFile="true"/>
     <include file="scripts/007_ddl_create_tickets_table.sql" relativeToChangelogFile="true"/>
+    <include file="scripts/008_dml_insert_all_tables_data.sql" relativeToChangelogFile="true"/>
 </databaseChangeLog>

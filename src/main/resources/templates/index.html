@@ -32,16 +32,12 @@
     </section>
     <nav class="navigation" th:insert="blocks/nav"></nav>
     <section class="list">
-        <div class="list__card">
+        <div class="list__card" th:each="film: ${films}">
             <div class="list__card__img">
-                <img src="#" alt="#">
+                <img th:src="@{/files/{fileId}(fileId=${film.fileId})}" alt="#">
             </div>
-            <span class="list__card__name">
-                    Название фильма
-                </span>
-            <span class="list__card__genre">
-                    <p>Жанр</p>
-                </span>
+            <span class="list__card__name" th:text="${film.name}"></span>
+            <span class="list__card__genre" th:text="${film.genre}"></span>
             <a href="#" class="list__card__buy">
                 Купить билет
             </a>

@@ -2,10 +2,13 @@ package ru.job4j.cinema.service;
 
 import org.springframework.stereotype.Service;
 import ru.job4j.cinema.dto.FilmDto;
+import ru.job4j.cinema.model.Film;
 import ru.job4j.cinema.repository.FilmRepository;
 
 import java.util.Collection;
 import java.util.Optional;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @Service
 public class SimpleFilmService implements FilmService {
@@ -24,7 +27,19 @@ public class SimpleFilmService implements FilmService {
 
     @Override
     public Collection<FilmDto> findAll() {
-        return null;
+        ConcurrentHashMap<AtomicInteger, FilmDto> filmsDto = new ConcurrentHashMap<>();
+        for (Film film : filmRepository.findAll()) {
+            filmsDto.putIfAbsent(new AtomicInteger(film.getId()), new FilmDto(
+                    film.getName(),
+                    film.getDescription(),
+                    film.getYear(),
+                    film.getMinimalAge(),
+                    film.getDurationInMinutes(),
+                    genreService.findById(film.getGenreId()).get().getName(),
+                    film.getFileId()
+            ));
+        }
+        return filmsDto.values();
     }
 
     @Override

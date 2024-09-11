@@ -7,6 +7,7 @@ import ru.job4j.cinema.model.User;
 import java.util.Collection;
 import java.util.Optional;
 
+@Repository
 public class Sql2oUserRepository implements UserRepository {
 
     private final Sql2o sql2o;

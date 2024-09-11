@@ -1,6 +1,5 @@
 package ru.job4j.cinema.service;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import ru.job4j.cinema.dto.FileDto;
 import ru.job4j.cinema.repository.FileRepository;
@@ -15,12 +14,8 @@ public class SimpleFileService implements FileService {
 
     private final FileRepository fileRepository;
 
-    private final String storageDirectory;
-
-    public SimpleFileService(FileRepository sql2oFileRepository,
-                             @Value("${file.directory}") String storageDirectory) {
+    public SimpleFileService(FileRepository sql2oFileRepository) {
         this.fileRepository = sql2oFileRepository;
-        this.storageDirectory = storageDirectory;
     }
 
     @Override

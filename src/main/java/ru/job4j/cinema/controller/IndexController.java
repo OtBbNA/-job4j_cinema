@@ -1,14 +1,22 @@
 package ru.job4j.cinema.controller;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import ru.job4j.cinema.service.FilmService;
 
-@RestController
+@Controller
 public class IndexController {
 
-    @GetMapping("/index")
-    public String getIndex() {
-        return "Hello World!";
+    private final FilmService filmService;
+
+    public IndexController(FilmService filmService) {
+        this.filmService = filmService;
     }
 
+    @GetMapping({"/", "/index"})
+    public String getIndex(Model model) {
+        model.addAttribute("films", filmService.findAll());
+        return "index";
+    }
 }
