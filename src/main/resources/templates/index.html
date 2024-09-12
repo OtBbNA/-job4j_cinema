@@ -11,13 +11,13 @@
 <div class="wrapper">
     <header class="header" th:insert="blocks/header"></header>
     <section class="carousel">
-        <div class="carousel__elements" >
+        <div class="carousel__elements" th:each="film: ${films}">
             <div class="carousel__element">
                 <div class="short__name">
-                    <span></span>
+                    <p th:text="${film.name}"></p>
                 </div>
                 <div class="short__image">
-                    <img alt="#">
+                    <img th:src="@{/files/{fileId}(fileId=${film.fileId})}" alt="#">
                 </div>
             </div>
         </div>
@@ -34,16 +34,17 @@
     <section class="list">
         <div class="list__card" th:each="film: ${films}">
             <div class="list__card__img">
-                <img th:src="@{/files/{fileId}(fileId=${film.fileId})}" alt="#">
+                <img width="300px" th:src="@{/files/{fileId}(fileId=*{film.fileId})}" alt="#">
             </div>
             <span class="list__card__name" th:text="${film.name}"></span>
-            <span class="list__card__genre" th:text="${film.genre}"></span>
+            <p><span class="list__card__genre" th:text="${film.genre}"></span> <span class="list__card__genre" th:text="${film.minimalAge}"></span>+</p>
             <a href="#" class="list__card__buy">
                 Купить билет
             </a>
         </div>
     </section>
     <footer class="footer" th:insert="blocks/footer"></footer>
+    <script th:src="@{js/indexScript.js}"></script>
 </div>
 </body>
 </html>

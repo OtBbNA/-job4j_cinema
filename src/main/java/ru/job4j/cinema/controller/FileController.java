@@ -1,5 +1,7 @@
 package ru.job4j.cinema.controller;
 
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,10 +19,9 @@ public class FileController {
         this.fileService = fileService;
     }
 
-    @GetMapping("/{fileId}")
-    public ResponseEntity<?> getById(@PathVariable int fileId) {
-        var contentOptional = fileService.getFileById(fileId);
-        System.out.println(fileService.getFileById(fileId));
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getById(@PathVariable int id) {
+        var contentOptional = fileService.getFileById(id);
         if (contentOptional.isEmpty()) {
             return ResponseEntity.notFound().build();
         }

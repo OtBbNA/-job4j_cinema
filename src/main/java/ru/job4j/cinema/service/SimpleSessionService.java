@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 import ru.job4j.cinema.model.Session;
 import ru.job4j.cinema.repository.SessionRepository;
 
+import java.util.Collection;
 import java.util.Optional;
 
 @Service
@@ -18,5 +19,10 @@ public class SimpleSessionService implements SessionService {
     @Override
     public Optional<Session> findById(int id) {
         return sessionRepository.findById(id);
+    }
+
+    @Override
+    public Collection<Session> findAll() {
+        return sessionRepository.findAll();
     }
 }

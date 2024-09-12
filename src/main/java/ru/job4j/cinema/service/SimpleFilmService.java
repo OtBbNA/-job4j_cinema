@@ -8,7 +8,6 @@ import ru.job4j.cinema.repository.FilmRepository;
 import java.util.Collection;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.atomic.AtomicInteger;
 
 @Service
 public class SimpleFilmService implements FilmService {
@@ -17,19 +16,16 @@ public class SimpleFilmService implements FilmService {
 
     private final GenreService genreService;
 
-    private final FileService fileService;
-
-    public SimpleFilmService(FilmRepository filmRepository, GenreService genreService, FileService fileService) {
-        this.filmRepository = filmRepository;
+    public SimpleFilmService(FilmRepository sql2oFilmRepository, GenreService genreService) {
+        this.filmRepository = sql2oFilmRepository;
         this.genreService = genreService;
-        this.fileService = fileService;
     }
 
     @Override
     public Collection<FilmDto> findAll() {
-        ConcurrentHashMap<AtomicInteger, FilmDto> filmsDto = new ConcurrentHashMap<>();
+        ConcurrentHashMap<Integer, FilmDto> filmsDto = new ConcurrentHashMap<>();
         for (Film film : filmRepository.findAll()) {
-            filmsDto.putIfAbsent(new AtomicInteger(film.getId()), new FilmDto(
+            filmsDto.put(film.getId(), new FilmDto(
                     film.getName(),
                     film.getDescription(),
                     film.getYear(),
@@ -44,6 +40,20 @@ public class SimpleFilmService implements FilmService {
 
     @Override
     public Optional<FilmDto> findById(int id) {
-        return Optional.empty();
+        var film = filmRepository.findById(id);
+        if (film.isEmpty()) {
+            return Optional.empty();
+        }
+        Film filmRsl = film.get();
+        FilmDto filmDto = new FilmDto(
+                filmRsl.getName(),
+                filmRsl.getDescription(),
+                filmRsl.getYear(),
+                filmRsl.getMinimalAge(),
+                filmRsl.getDurationInMinutes(),
+                    genreService.findById(filmRsl.getGenreId()).get().getName(),
+                filmRsl.getFileId()
+            );
+        return Optional.of(filmDto);
     }
 }

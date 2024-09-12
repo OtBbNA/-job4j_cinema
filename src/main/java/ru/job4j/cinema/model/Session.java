@@ -1,5 +1,6 @@
 package ru.job4j.cinema.model;
 
+import java.time.LocalDateTime;
 import java.util.Calendar;
 import java.util.Map;
 import java.util.Objects;
@@ -9,7 +10,7 @@ public class Session {
     public static final Map<String, String> COLUMN_MAPPING = Map.of(
             "id", "id",
             "film_id", "filmId",
-            "halls_idr", "hallsId",
+            "halls_id", "hallsId",
             "start_time", "startTime",
             "end_time", "endTime",
             "user_id", "price"
@@ -18,14 +19,14 @@ public class Session {
     private int id;
     private int filmId;
     private int hallsId;
-    private Calendar startTime;
-    private Calendar endTime;
+    private LocalDateTime startTime;
+    private LocalDateTime endTime;
     private int price;
 
     public Session() {
     }
 
-    public Session(int id, int filmId, int hallsId, Calendar startTime, Calendar endTime, int price) {
+    public Session(int id, int filmId, int hallsId, LocalDateTime startTime, LocalDateTime endTime, int price) {
         this.id = id;
         this.filmId = filmId;
         this.hallsId = hallsId;
@@ -58,19 +59,19 @@ public class Session {
         this.hallsId = hallsId;
     }
 
-    public Calendar getStartTime() {
+    public LocalDateTime getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(Calendar startTime) {
+    public void setStartTime(LocalDateTime startTime) {
         this.startTime = startTime;
     }
 
-    public Calendar getEndTime() {
+    public LocalDateTime getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(Calendar endTime) {
+    public void setEndTime(LocalDateTime endTime) {
         this.endTime = endTime;
     }
 

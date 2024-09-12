@@ -15,13 +15,13 @@
     <header class="header" th:insert="blocks/header"></header>
     <nav class="navigation" th:insert="blocks/nav"></nav>
     <section class="schedule__list">
-        <a class="schedule__list__card__buy" th:href="@{/schedule/ticket}">
+        <a class="schedule__list__card__buy" th:href="@{/schedule/ticket}" th:each="schedule: ${schedules}">
             <div class="schedule__time__position">
                 <div class="schedule__time">
-                    <span>6 : 50</span>
+                    <span th:text="${schedule.startTime}"></span>
                 </div>
                 <div class="schedule__time">
-                    <span>8 : 40</span>
+                    <span th:text="${schedule.endTime}"></span>
                 </div>
             </div>
             <div class="schedule__info__position">
