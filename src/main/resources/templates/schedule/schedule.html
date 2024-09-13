@@ -26,15 +26,17 @@
             </div>
             <div class="schedule__info__position">
                 <div class="schedule__info__name">
-                    <span class="schedule__info__name__position">Название фильма</span>
-                    <span class="schedule__info__name__position">Год</span>
+                    <p>
+                        <span class="schedule__info__name__position" th:text="${schedule.film.name}"></span>
+                        (<span class="schedule__info__name__position" th:text="${schedule.film.year}"></span>)
+                    </p>
                 </div>
                 <div class="schedule__info__age_genre">
-                    <span class="schedule__info__age_genre__position">Возраст</span>
-                    <span class="schedule__info__age_genre__position">Жанр</span>
-                </div>
-                <div class="schedule__info__age_genre">
-                    <span class="schedule__info__age_genre__position">Зал</span>
+                    <p>
+                        <span class="schedule__info__age_genre__position" th:text="${schedule.film.minimalAge}"></span>+
+                        <span class="schedule__info__age_genre__position" th:text="${schedule.film.genre}"></span>
+                        <span class="schedule__info__age_genre__position" th:text="${schedule.hall.name}"></span>
+                    </p>
                 </div>
             </div>
         </a>

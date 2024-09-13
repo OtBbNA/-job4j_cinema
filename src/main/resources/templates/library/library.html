@@ -13,14 +13,17 @@
     <header class="header" th:insert="blocks/header"></header>
     <nav class="navigation" th:insert="blocks/nav"></nav>
     <div class="library__list">
-        <div class="library__list__card">
+        <div class="library__list__card" th:each="film: ${films}">
             <div class="library__list__card__img">
-                <img src="source/capuchin from people street/one.svg" alt="#">
+                <img th:src="@{/files/{fileId}(fileId=*{film.fileId})}" alt="#">
             </div>
-            <div class="library__list__card__descriptipn">
-                <p><span>Название фильма</span> <span>Год</span></p>
-                <p><span>Жанр</span> <span>3+</span></p>
-                <p><span>Описание</span></p>
+            <div class="library__list__card__description">
+                <p>
+                    <span th:text="${film.name}"></span>
+                    (<span th:text="${film.year}"></span>)
+                </p>
+                <p><span th:text="${film.genre}"></span> <span th:text="${film.minimalAge}"></span></p>
+                <p><span th:text="${film.description}"></span></p>
             </div>
         </div>
     </div>

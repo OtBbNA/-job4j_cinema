@@ -1,7 +1,7 @@
 .library__list {
     justify-content: space-around;
 
-    padding: 1%;
+    padding: 1% 1% 0.01% 1%;
 
     background-color: var(--bg-color-bisque-light);
 }
@@ -12,6 +12,7 @@
     justify-content: flex-start;
     align-items: center;
 
+    margin-bottom: 1%;
     padding: 1%;
 
     width: 100%;
