@@ -1,7 +1,5 @@
 .library__list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
 
     padding: 1% 1% 0.01% 1%;
 
@@ -17,26 +15,35 @@
     margin-bottom: 1%;
     padding: 1%;
 
-    width: 49.4%;
+    width: 100%;
 
     border-radius: 5px;
 
     background-color: var(--bg-color-blue-light);
-
-    color: var(--black-color);
-    text-decoration: none;
-}
-
-.library__list__card:hover {
-    text-decoration: none;
 }
 
 .library__list__card__img {
-    width: 15%;
+    width: 25%;
 }
 
 .library__list__card__img>img {
     padding-right: 10px;
 
     width: 100%;
+}
+
+.library__list__card__info {
+    margin-right: 1%;
+}
+
+.library__list__card__info>p {
+    color: var(--magenta-color);
+}
+
+.library__list__card__info>p>span {
+    color: var(--black-color);
+}
+
+.library__list__card__description {
+    width: 50%;
 }

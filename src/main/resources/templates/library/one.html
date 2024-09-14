@@ -4,30 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/css/indexStyle.css}">
-    <link rel="stylesheet" th:href="@{/css/libraryStyle.css}">
+    <link rel="stylesheet" th:href="@{/css/oneLibraryStyle.css}">
 
-    <title>Кинотека</title>
+    <title>Фильм</title>
 </head>
 <body class="body">
 <div class="wrapper">
     <header class="header" th:insert="blocks/header"></header>
     <nav class="navigation" th:insert="blocks/nav"></nav>
     <div class="library__list">
-        <a class="library__list__card" th:each="film: ${films}" th:href="@{/library/{Id}(Id=${film.id})}">
+        <div class="library__list__card">
             <div class="library__list__card__img">
                 <img th:src="@{/files/{fileId}(fileId=*{film.fileId})}" alt="#">
             </div>
+            <div class="library__list__card__info">
+                <p><span th:text="${film.name}"></span></p>
+                <p>Год: <span th:text="${film.year}"></span></p>
+                <p>Жанр: <span th:text="${film.genre}"></span></p>
+                <p>Минимальный возраст: <span th:text="${film.minimalAge}"></span>+</p>
+                <p>Продолжительность: <span th:text="${film.durationInMinutes}"></span> мин</p>
+            </div>
             <div class="library__list__card__description">
                 <p>
-                    <span th:text="${film.name}"></span>
-                    (<span th:text="${film.year}"></span>)
-                </p>
-                <p>
-                    <span th:text="${film.genre}"></span>
-                    <span th:text="${film.minimalAge}"></span>+
+                    <span th:text="${film.description}"></span>
                 </p>
             </div>
-        </a>
+        </div>
     </div>
     <footer class="footer" th:insert="blocks/footer"></footer>
 </div>

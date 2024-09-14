@@ -73,11 +73,11 @@
 
 .frame__body__bigpart__left>h3 {
     text-align: center;
-    line-height: 35px;
+    line-height: 30px;
 }
 
 .frame__body__bigpart__left>p {
-    line-height: 35px;
+    line-height: 30px;
 }
 
 .frame__body__bigpart__right {
@@ -132,8 +132,6 @@
 }
 
 .submit__accept {
-    display: block;
-
     width: 30%;
 
     border: none;
@@ -141,6 +139,7 @@
 
     background-color: var(--bg-color-green);
 
+    font-family: var(--font-family-main);
     text-align: center;
     color: var(--white-color);
     text-decoration: none;

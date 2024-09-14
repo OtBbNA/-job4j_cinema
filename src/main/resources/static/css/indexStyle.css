@@ -263,6 +263,8 @@
 }
 
 .list__card__img {
+    margin-bottom: 2%;
+
     width: 200px;
     height: 300px;
 }
@@ -275,14 +277,24 @@
     object-position: -50 0;
 }
 
-.list__card__img>span {
+.list__card__text {
+    margin-bottom: 2%;
+
     text-align: center;
+}
+
+.list__card>p {
+    color: var(--magenta-color);
+}
+
+.list__card__text>span {
+    color: var(--magenta-color);
 }
 
 .list__card__buy {
     display: block;
 
-    margin-bottom: 11px;
+    margin-bottom: 1%;
 
     width: 70%;
 

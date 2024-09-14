@@ -35,32 +35,21 @@
                     <div class="frame__body__smallpart__left"></div>
                     <div class="frame__body__bigpart__left">
                         <h3>Кинотеатр "Кинобара"</h3>
-                        <p>Фильм: <span>Название фильма</span> <span>год</span></p>
-                        <p>Жанр: <span>Жанр</span></p>
-                        <p>Начало сеанса: <span>Время начала</span></p>
-                        <p>Конец сеанса: <span>Время конца</span></p>
-                        <p>Возрастное ограничение: <span>Возраст</span></p>
+                        <p>Фильм: <span th:text="${schedule.film.name}"></span> (<span th:text="${schedule.film.year}"></span>)</p>
+                        <p>Жанр: <span th:text="${schedule.film.genre}"></span></p>
+                        <p>Возрастное ограничение:<span th:text="${schedule.film.minimalAge}"></span>+</p>
+                        <p>Зал: <span th:text="${schedule.hall.name}"></span> (<span th:text="${schedule.hall.description}"></span>)</p>
+                        <p>Начало сеанса: <span th:text="${schedule.startTime}"></span></p>
+                        <p>Конец сеанса: <span th:text="${schedule.endTime}"></span></p>
                         <p>Ряд: <Select>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
+                            <option th:each="i : ${#numbers.sequence(1, schedule.hall.rowCount)}" th:value="${i}" th:text="${i}"></option>
                         </Select> Место: <Select>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="1">6</option>
-                            <option value="2">7</option>
-                            <option value="3">8</option>
-                            <option value="4">9</option>
-                            <option value="5">10</option>
-                        </Select> Зал: <span>Название зала</span></p>
+                            <option th:each="i : ${#numbers.sequence(1, schedule.hall.placeCount)}" th:value="${i}" th:text="${i}"></option>
+                        </Select>
+                        </p>
                     </div>
                     <div class="frame__body__bigpart__right">
-                        <img src="{}" alt="#">
+                        <img th:src="@{/files/{fileId}(fileId=*{schedule.film.fileId})}" alt="#">
                     </div>
                     <div class="frame__body__smallpart__right"></div>
                 </div>

@@ -52,7 +52,3 @@
     text-decoration: none;
     color: var(--black-color);
 }
-
-span {
-    display: inline-block;
-}

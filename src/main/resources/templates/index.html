@@ -36,8 +36,8 @@
             <div class="list__card__img">
                 <img width="300px" th:src="@{/files/{fileId}(fileId=*{film.fileId})}" alt="#">
             </div>
-            <span class="list__card__name" th:text="${film.name}"></span>
-            <p><span class="list__card__genre" th:text="${film.genre}"></span> <span class="list__card__genre" th:text="${film.minimalAge}"></span>+</p>
+            <span class="list__card__text" th:text="${film.name}"></span>
+            <p class="list__card__text"><span th:text="${film.genre}"></span> <span th:text="${film.minimalAge}"></span>+</p>
             <a href="#" class="list__card__buy">
                 Купить билет
             </a>

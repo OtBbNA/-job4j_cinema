@@ -26,6 +26,7 @@ public class SimpleFilmService implements FilmService {
         ConcurrentHashMap<Integer, FilmDto> filmsDto = new ConcurrentHashMap<>();
         for (Film film : filmRepository.findAll()) {
             filmsDto.put(film.getId(), new FilmDto(
+                    film.getId(),
                     film.getName(),
                     film.getDescription(),
                     film.getYear(),
@@ -46,6 +47,7 @@ public class SimpleFilmService implements FilmService {
         }
         Film filmRsl = film.get();
         FilmDto filmDto = new FilmDto(
+                filmRsl.getId(),
                 filmRsl.getName(),
                 filmRsl.getDescription(),
                 filmRsl.getYear(),

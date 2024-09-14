@@ -15,7 +15,7 @@
     <header class="header" th:insert="blocks/header"></header>
     <nav class="navigation" th:insert="blocks/nav"></nav>
     <section class="schedule__list">
-        <a class="schedule__list__card__buy" th:href="@{/schedule/ticket}" th:each="schedule: ${schedules}">
+        <a class="schedule__list__card__buy" th:each="schedule: ${schedules}" th:href="@{/schedule/{Id}(Id=${schedule.id})}" >
             <div class="schedule__time__position">
                 <div class="schedule__time">
                     <span th:text="${schedule.startTime}"></span>
@@ -36,6 +36,11 @@
                         <span class="schedule__info__age_genre__position" th:text="${schedule.film.minimalAge}"></span>+
                         <span class="schedule__info__age_genre__position" th:text="${schedule.film.genre}"></span>
                         <span class="schedule__info__age_genre__position" th:text="${schedule.hall.name}"></span>
+                    </p>
+                </div>
+                <div class="schedule__info__age_genre">
+                    <p>
+                        Цена: <span class="schedule__info__age_genre__position" th:text="${schedule.price}"></span> листков
                     </p>
                 </div>
             </div>
