@@ -15,7 +15,7 @@
     <header class="header" th:insert="blocks/header"></header>
     <nav class="navigation" th:insert="blocks/nav"></nav>
     <div class="message">
-        <p class="message__text">билет куплен</p>
+        <p class="message__text" th:text="${message}"></p>
     </div>
     <footer class="footer" th:insert="blocks/footer"></footer>
 </div>

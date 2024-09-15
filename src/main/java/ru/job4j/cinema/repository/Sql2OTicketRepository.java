@@ -4,6 +4,7 @@ import org.springframework.stereotype.Repository;
 import org.sql2o.Sql2o;
 import ru.job4j.cinema.model.Ticket;
 
+import java.util.Collection;
 import java.util.Optional;
 
 @Repository
@@ -40,6 +41,14 @@ public class Sql2OTicketRepository implements TicketRepository {
             query.addParameter("id", id);
             var ticket = query.setColumnMappings(Ticket.COLUMN_MAPPING).executeAndFetchFirst(Ticket.class);
             return Optional.ofNullable(ticket);
+        }
+    }
+
+    @Override
+    public Collection<Ticket> findAll() {
+        try (var connection = sql2o.open()) {
+            var ticket = connection.createQuery("SELECT * FROM tickets");
+            return ticket.setColumnMappings(Ticket.COLUMN_MAPPING).executeAndFetch(Ticket.class);
         }
     }
 }

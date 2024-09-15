@@ -16,7 +16,7 @@
     <nav class="navigation" th:insert="blocks/nav"></nav>
     <div class="error">
         <h3 class="error__head">Произошла ошибка</h3>
-        <p class="error__text">Непредвиденная работа программы</p>
+        <p class="error__text" th:text="${message}">Непредвиденная работа программы</p>
     </div>
     <footer class="footer" th:insert="blocks/footer"></footer>
 </div>
