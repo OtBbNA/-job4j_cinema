@@ -25,6 +25,17 @@
     border-radius: 7px;
 }
 
+.login__window__registration__bad__request {
+    display: flex;
+    position: relative;
+
+    top: 10px;
+    left: 335px;
+
+    font-size: smaller;
+    color: var(--bg-color-magenta);
+}
+
 .login__window__button__container {
     display: flex;
 

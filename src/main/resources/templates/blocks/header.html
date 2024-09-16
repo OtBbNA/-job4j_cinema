@@ -14,8 +14,12 @@
     <div class="header__info__phone">
         <p>+7(XXX)XXX-XX-XX</p>
     </div>
-    <div class="header__info__registration">
+    <div class="header__info__registration" th:if="${user.fullName == 'Гость'}">
         <a th:href="@{/users/register}">Регистрация</a>
         <a th:href="@{/users/login}">Войти</a>
+    </div>
+    <div class="header__info__registration" th:if="${user.fullName != 'Гость'}">
+        <a href="#" th:text="${user.fullName}">Регистрация</a>
+        <a th:href="@{/users/logout}">Выйти</a>
     </div>
 </div>

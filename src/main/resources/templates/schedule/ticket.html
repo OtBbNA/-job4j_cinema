@@ -16,10 +16,8 @@
     <nav class="navigation" th:insert="blocks/nav"></nav>
     <div class="ticket__body">
         <form class="schedule__ticket" th:action="@{/schedule/save}" method="post" enctype="multipart/form-data">
-            <input type="hidden" id="sessionId" name="sessionId" value="1">
-            <input type="hidden" id="userId" name="userId" value="18">
-            <input type="hidden" id="rowNumber" name="rowNumber" value="18">
-            <input type="hidden" id="placeNumber" name="placeNumber" value="18">
+            <input type="hidden" id="sessionId" name="sessionId" th:value="${schedule.id}">
+            <input type="hidden" id="userId" name="userId" th:value="${user.id}">
             <div class="frame">
                 <div class="frame__halls">
                     <div class="frame__halls__hall"></div>
@@ -41,16 +39,17 @@
                         <h3>Кинотеатр "Кинобара"</h3>
                         <p>Фильм: <span th:text="${schedule.film.name}"></span> (<span th:text="${schedule.film.year}"></span>)</p>
                         <p>Жанр: <span th:text="${schedule.film.genre}"></span></p>
-                        <p>Возрастное ограничение:<span th:text="${schedule.film.minimalAge}"></span>+</p>
+                        <p>Возрастное ограничение: <span th:text="${schedule.film.minimalAge}"></span>+</p>
                         <p>Зал: <span th:text="${schedule.hall.name}"></span> (<span th:text="${schedule.hall.description}"></span>)</p>
                         <p>Начало сеанса: <span th:text="${schedule.startTime}"></span></p>
                         <p>Конец сеанса: <span th:text="${schedule.endTime}"></span></p>
-<!--                        <p>Ряд: <Select id="rowNumber" name="rowNumber">-->
-<!--                            <option th:each="i : ${#numbers.sequence(1, schedule.hall.rowCount)}" th:value="${i}" th:text="${i}" value="18"></option>-->
-<!--                        </Select>-->
-<!--                            Место: <Select id="placeNumber" name="placeNumber">-->
-<!--                            <option th:each="i : ${#numbers.sequence(1, schedule.hall.placeCount)}" th:value="${i}" th:text="${i}" value="18"></option>-->
-<!--                        </Select>-->
+                        <p>Ряд: <Select id="rowNumber" name="rowNumber">
+                            <option th:each="i : ${#numbers.sequence(1, schedule.hall.rowCount)}" th:value="${i}" th:text="${i}"></option>
+                        </Select>
+                            Место: <Select id="placeNumber" name="placeNumber">
+                            <option th:each="i : ${#numbers.sequence(1, schedule.hall.placeCount)}" th:value="${i}" th:text="${i}"></option>
+                        </Select>
+                             Цена: <span th:text="${schedule.price}"></span> листочков
                         </p>
                     </div>
                     <div class="frame__body__bigpart__right">

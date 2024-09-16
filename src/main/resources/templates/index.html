@@ -38,9 +38,7 @@
             </div>
             <span class="list__card__text" th:text="${film.name}"></span>
             <p class="list__card__text"><span th:text="${film.genre}"></span> <span th:text="${film.minimalAge}"></span>+</p>
-            <a href="#" class="list__card__buy">
-                Купить билет
-            </a>
+            <a th:href="@{/schedule/scheduleByFilmId/{filmId}(filmId=${film.id})}" class="list__card__buy">Купить билет</a>
         </div>
     </section>
     <footer class="footer" th:insert="blocks/footer"></footer>

@@ -9,5 +9,7 @@ public interface SessionRepository {
 
     Optional<Session> findById(int id);
 
+    Collection<Session> findByFilmId(int id);
+
     Collection<Session> findAll();
 }

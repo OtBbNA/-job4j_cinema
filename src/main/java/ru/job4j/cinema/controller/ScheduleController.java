@@ -8,6 +8,8 @@ import ru.job4j.cinema.model.Ticket;
 import ru.job4j.cinema.service.SessionService;
 import ru.job4j.cinema.service.TicketService;
 
+import javax.servlet.http.HttpSession;
+
 @ThreadSafe
 @Controller
 @RequestMapping("/schedule")
@@ -28,8 +30,14 @@ public class ScheduleController {
         return "schedule/schedule";
     }
 
+    @GetMapping("/scheduleByFilmId/{id}")
+    public String getSchedulePageByFilmId(Model model, @PathVariable int id) {
+        model.addAttribute("schedules", sessionService.findByFilmId(id));
+        return "schedule/schedule";
+    }
+
     @GetMapping("/{id}")
-    public String getById(Model model, @PathVariable int id) {
+    public String getById(Model model, @PathVariable int id, HttpSession session) {
         var sessionOptional = sessionService.findById(id);
         if (sessionOptional.isEmpty()) {
             model.addAttribute("message", "Сессия не найдена");
@@ -37,22 +45,19 @@ public class ScheduleController {
         }
         model.addAttribute("schedule", sessionOptional.get());
         model.addAttribute("sessionId", id);
+        model.addAttribute("user", session.getAttribute("user"));
         return "schedule/ticket";
     }
 
     @PostMapping("/save")
     public String save(@ModelAttribute Ticket ticket, Model model) {
         try {
-            for (Ticket savedTicket : ticketService.findAll()) {
-                if (savedTicket.getSessionId() == ticket.getSessionId()
-                        && savedTicket.getPlaceNumber() == ticket.getPlaceNumber()
-                        && savedTicket.getRowNumber() == ticket.getRowNumber()) {
-                    model.addAttribute("message", "Извините, указанное место занято");
-                    return "message/message";
-                }
+            if (!ticketService.save(ticket)) {
+                model.addAttribute("message", "Извините, указанное место занято");
+                return "message/message";
             }
-            ticketService.save(ticket);
-            return "redirect:/index";
+            model.addAttribute("message", "Билет успешно приобретен");
+            return "message/message";
         } catch (Exception exception) {
             model.addAttribute("message", exception.getMessage());
             return "errors/404";

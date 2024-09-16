@@ -17,8 +17,16 @@ public class SimpleTicketService implements TicketService {
     }
 
     @Override
-    public Ticket save(Ticket ticket) {
-        return ticketRepository.save(ticket);
+    public boolean save(Ticket ticket) {
+        for (Ticket savedTicket : findAll()) {
+            if (savedTicket.getSessionId() == ticket.getSessionId()
+                    && savedTicket.getPlaceNumber() == ticket.getPlaceNumber()
+                    && savedTicket.getRowNumber() == ticket.getRowNumber()) {
+                return false;
+            }
+        }
+        ticketRepository.save(ticket);
+        return true;
     }
 
     @Override

@@ -44,6 +44,21 @@ public class SimpleSessionService implements SessionService {
     }
 
     @Override
+    public Collection<SessionDto> findByFilmId(int id) {
+        ConcurrentHashMap<Integer, SessionDto> sessionDto = new ConcurrentHashMap<>();
+        for (Session session : sessionRepository.findByFilmId(id)) {
+            sessionDto.put(session.getId(), new SessionDto(session.getId(),
+                    filmService.findById(session.getFilmId()).get(),
+                    hallService.findById(session.getHallsId()).get(),
+                    session.getStartTime().format(DateTimeFormatter.ofPattern("HH:mm")).toString(),
+                    session.getEndTime().format(DateTimeFormatter.ofPattern("HH:mm")).toString(),
+                    session.getPrice()
+            ));
+        }
+        return sessionDto.values();
+    }
+
+    @Override
     public Collection<SessionDto> findAll() {
         ConcurrentHashMap<Integer, SessionDto> sessionDto = new ConcurrentHashMap<>();
         for (Session session : sessionRepository.findAll()) {

@@ -15,7 +15,7 @@
     <header class="header" th:insert="blocks/header"></header>
     <nav class="navigation" th:insert="blocks/nav"></nav>
     <section class="schedule__list">
-        <a class="schedule__list__card__buy" th:each="schedule: ${schedules}" th:href="@{/schedule/{Id}(Id=${schedule.id})}" >
+        <a class="schedule__list__card__buy" th:each="schedule: ${schedules}" th:href="${user.fullName == 'Гость'} ? @{/users/register} : @{/schedule/{Id}(Id=${schedule.id})}">
             <div class="schedule__time__position">
                 <div class="schedule__time">
                     <span th:text="${schedule.startTime}"></span>

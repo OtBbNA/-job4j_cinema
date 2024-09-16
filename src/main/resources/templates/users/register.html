@@ -13,21 +13,23 @@
     <header class="header" th:insert="blocks/header"></header>
     <nav class="navigation" th:insert="blocks/nav"></nav>
     <section class="registration__window">
-        <div class="registration__window__container">
-            <label for="name">Имя</label>
-            <input type="text" id="name" name="name" placeholder="Иван" required>
-        </div>
-        <div class="registration__window__container">
-            <label for="email">Почта</label>
-            <input type="text" id="email" name="email" placeholder="ivan@mail.ru" required>
-        </div>
-        <div class="registration__window__container">
-            <label for="password">Пароль</label>
-            <input type="password" id="password" name="password" required>
-        </div>
-        <div class="registration__window__button__container">
-            <button class="registration__window__button" type="submit">Зарегистрироваться</button>
-        </div>
+        <form th:action="@{/users/register}" method="post">
+            <div class="registration__window__container">
+                <label for="fullName">Имя</label>
+                <input type="text" id="fullName" name="fullName" placeholder="Иван" required>
+            </div>
+            <div class="registration__window__container">
+                <label for="email">Почта</label>
+                <input type="text" id="email" name="email" placeholder="ivan@mail.ru" required>
+            </div>
+            <div class="registration__window__container">
+                <label for="password">Пароль</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="registration__window__button__container">
+                <button class="registration__window__button" type="submit" th:href="@{/}">Зарегистрироваться</button>
+            </div>
+        </form>
     </section>
     <footer class="footer" th:insert="blocks/footer"></footer>
 </div>

@@ -13,7 +13,10 @@
     <header class="header" th:insert="blocks/header"></header>
     <nav class="navigation" th:insert="blocks/nav"></nav>
     <section class="login__window">
-        <form method="post">
+        <form method="post" th:action="@{/users/login}">
+            <div class="login__window__registration__bad__request" th:if="${error}">
+                <p class="text-danger" th:text="${error}"></p>
+            </div>
             <div class="login__window__container">
                 <label for="email"><b>Почта</b></label>
                 <input type="email" id="email" name="email" placeholder="ivan@mail.ru" required>
@@ -23,8 +26,8 @@
                 <input type="password" id="password" name="password" required>
             </div>
             <div class="login__window__button__container">
-                <a class="login__window__button__cancel" href="/">Отмена</a>
-                <button class="login__window__button__accept" type="submit">Войти</button>
+                <a class="login__window__button__cancel" th:href="@{/}">Отмена</a>
+                <button class="login__window__button__accept" type="submit" th:href="@{/}">Войти</button>
             </div>
             <div class="login__window__registration">
                 <p>Не зарегистрированы? <span><a th:href="@{/users/register}">Зарегистрироваться</a></span></p>

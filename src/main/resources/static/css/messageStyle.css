@@ -5,5 +5,7 @@
 }
 
 .message__text {
-    margin-bottom: 0px;
+    padding: 100px;
+
+    font-size: var(--font-size-medium);
 }
