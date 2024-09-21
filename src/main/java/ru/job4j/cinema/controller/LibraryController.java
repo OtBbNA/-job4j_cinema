@@ -20,9 +20,9 @@ public class LibraryController {
     }
 
     @GetMapping("/library")
-    public String getSchedulePage(Model model) {
+    public String getLibraryPage(Model model) {
         model.addAttribute("films", filmService.findAll());
-        return "/library/library";
+        return "library/library";
     }
 
     @GetMapping("/{id}")
