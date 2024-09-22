@@ -9,6 +9,8 @@ public interface TicketRepository {
 
     Ticket save(Ticket ticket);
 
+    void deleteById(int id);
+
     Optional<Ticket> findById(int id);
 
     Collection<Ticket> findAll();

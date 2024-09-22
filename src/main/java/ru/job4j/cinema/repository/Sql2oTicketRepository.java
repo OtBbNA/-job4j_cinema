@@ -8,11 +8,11 @@ import java.util.Collection;
 import java.util.Optional;
 
 @Repository
-public class Sql2OTicketRepository implements TicketRepository {
+public class Sql2oTicketRepository implements TicketRepository {
 
     private final Sql2o sql2o;
 
-    public Sql2OTicketRepository(Sql2o sql2o) {
+    public Sql2oTicketRepository(Sql2o sql2o) {
         this.sql2o = sql2o;
     }
 
@@ -49,6 +49,15 @@ public class Sql2OTicketRepository implements TicketRepository {
         try (var connection = sql2o.open()) {
             var ticket = connection.createQuery("SELECT * FROM tickets");
             return ticket.setColumnMappings(Ticket.COLUMN_MAPPING).executeAndFetch(Ticket.class);
+        }
+    }
+
+    @Override
+    public void deleteById(int id) {
+        try (var connection = sql2o.open()) {
+            var query = connection.createQuery("DELETE FROM tickets WHERE id = :id");
+            query.addParameter("id", id);
+            query.executeUpdate();
         }
     }
 }
