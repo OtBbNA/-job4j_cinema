@@ -29,16 +29,23 @@
 
 Скриншоты основных страниц сайта:
 
+Главная страница
 ![Главная страница](https://github.com/OtBbNA/job4j_cinema/blob/master/imageReadme/index.png)
 
+Список сеансов
 ![Список сеансов](https://github.com/OtBbNA/job4j_cinema/blob/master/imageReadme/schedule.png)
 
+Список фильмов
 ![Список фильмов](https://github.com/OtBbNA/job4j_cinema/blob/master/imageReadme/list.png)
 
+Отдельный фильм
 ![Отдельный фильм](https://github.com/OtBbNA/job4j_cinema/blob/master/imageReadme/listone.png)
 
+Покупка билета
 ![Покупка билета](https://github.com/OtBbNA/job4j_cinema/blob/master/imageReadme/ticket.png)
 
+Вход
 ![Вход](https://github.com/OtBbNA/job4j_cinema/blob/master/imageReadme/login.png)
 
+Регистрация
 ![Регистрация](https://github.com/OtBbNA/job4j_cinema/blob/master/imageReadme/registration.png)
