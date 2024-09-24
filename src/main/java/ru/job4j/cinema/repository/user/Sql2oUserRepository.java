@@ -35,7 +35,7 @@ public class Sql2oUserRepository implements UserRepository {
             user.setId(generatedId);
             return Optional.of(user);
         } catch (Exception e) {
-            LOG.error(() -> "Извините, указанное место занято");
+            LOG.error(() -> "Почта уже используется");
         }
         return Optional.empty();
     }

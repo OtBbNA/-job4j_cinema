@@ -14,6 +14,9 @@
     <nav class="navigation" th:insert="blocks/nav"></nav>
     <section class="registration__window">
         <form th:action="@{/users/register}" method="post">
+            <div class="login__window__registration__bad__request" th:if="${error}">
+                <p class="text-danger" th:text="${error}"></p>
+            </div>
             <div class="registration__window__container">
                 <label for="fullName">Имя</label>
                 <input type="text" id="fullName" name="fullName" placeholder="Иван" required>

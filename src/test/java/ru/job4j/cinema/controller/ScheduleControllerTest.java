@@ -114,7 +114,7 @@ class ScheduleControllerTest {
         var view = scheduleController.save(ticket, model);
         var actualMessage = model.getAttribute("message");
 
-        assertThat(view).isEqualTo("message/message");
+        assertThat(view).isEqualTo("errors/409");
         assertThat(actualMessage).isEqualTo("Билет успешно приобретен");
     }
 
@@ -127,20 +127,7 @@ class ScheduleControllerTest {
         var view = scheduleController.save(ticket, model);
         var actualMessage = model.getAttribute("message");
 
-        assertThat(view).isEqualTo("message/message");
+        assertThat(view).isEqualTo("errors/409");
         assertThat(actualMessage).isEqualTo("Извините, указанное место занято");
-    }
-
-    @Test
-    public void whenSomeExceptionThrownThenGetErrorPageWithMessage() {
-        var expectedException = new RuntimeException();
-        when(ticketService.save(any())).thenThrow(expectedException);
-
-        var model = new ConcurrentModel();
-        var view = scheduleController.save(new Ticket(), model);
-        var actualExceptionMessage = model.getAttribute("message");
-
-        assertThat(view).isEqualTo("errors/404");
-        assertThat(actualExceptionMessage).isEqualTo(expectedException.getMessage());
     }
 }

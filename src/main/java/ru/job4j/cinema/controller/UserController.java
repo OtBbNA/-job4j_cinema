@@ -33,7 +33,8 @@ public class UserController {
     public String register(Model model, @ModelAttribute User user) {
         var savedUser = userService.save(user);
         if (savedUser.isEmpty()) {
-            model.addAttribute("message", "Пользователь с такой почтой уже существует");
+            user.setFullName("Гость");
+            model.addAttribute("error", "*почта уже используется");
             return "users/register";
         }
         return "redirect:/index";

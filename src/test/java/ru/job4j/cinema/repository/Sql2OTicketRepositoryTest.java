@@ -12,6 +12,7 @@ import ru.job4j.cinema.repository.ticket.Sql2oTicketRepository;
 import ru.job4j.cinema.repository.user.Sql2oUserRepository;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Properties;
 
 import static java.time.LocalDateTime.now;
@@ -54,7 +55,7 @@ class Sql2OTicketRepositoryTest {
     void whenSaveThenGetSame() {
         var ticket = new Ticket(1, 1, 5, 15, 1);
         var savedTicket = sql2oTicketRepository.save(ticket);
-        assertThat(savedTicket).usingRecursiveComparison().isEqualTo(ticket);
+        assertThat(savedTicket.get()).usingRecursiveComparison().isEqualTo(ticket);
     }
 
     @Test
@@ -63,13 +64,14 @@ class Sql2OTicketRepositoryTest {
         var ticket2 = sql2oTicketRepository.save(new Ticket(2, 2, 4, 15, 1));
         var ticket3 = sql2oTicketRepository.save(new Ticket(3, 3, 7, 20, 1));
         var savedTickets = sql2oTicketRepository.findAll();
-        assertThat(savedTickets).isEqualTo(List.of(ticket1, ticket2, ticket3));
+        assertThat(savedTickets).isEqualTo(List.of(ticket1.get(), ticket2.get(), ticket3.get()));
     }
 
     @Test
     void whenSaveSameSessionIdRowNumberPlaceNumberThenGetException() {
-        var ticket1 = sql2oTicketRepository.save(new Ticket(1, 1, 5, 15, 1));
-        Assertions.assertThrows(Sql2oException.class, () -> sql2oTicketRepository.save(new Ticket(2, 1, 5, 15, 1)));
+        var ticket = (new Ticket(1, 1, 5, 15, 1));
+        sql2oTicketRepository.save(ticket);
+        assertThat(sql2oTicketRepository.save(ticket)).isEqualTo(Optional.empty());
     }
 
     @Test
@@ -83,14 +85,14 @@ class Sql2OTicketRepositoryTest {
         var ticket = sql2oTicketRepository.save(new Ticket(1, 1, 5, 15, 1));
         sql2oTicketRepository.deleteById(ticket.get().getId());
         var savedTicket = sql2oTicketRepository.findById(ticket.get().getId());
-        assertThat(savedTicket).isEqualTo(empty());
+        assertThat(savedTicket.isEmpty()).isTrue();
     }
 
     @Test
     void whenFindByIdThenGetSame() {
         var ticket = new Ticket(1, 1, 5, 15, 1);
         var savedTicket = sql2oTicketRepository.save(ticket);
-        assertThat(savedTicket).isEqualTo(sql2oTicketRepository.findById(ticket.getId()).get());
+        assertThat(savedTicket.get()).isEqualTo(sql2oTicketRepository.findById(ticket.getId()).get());
     }
 
     @Test
