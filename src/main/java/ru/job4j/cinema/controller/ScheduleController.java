@@ -5,8 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.job4j.cinema.model.Ticket;
-import ru.job4j.cinema.service.SessionService;
-import ru.job4j.cinema.service.TicketService;
+import ru.job4j.cinema.service.session.SessionService;
+import ru.job4j.cinema.service.ticket.TicketService;
 
 import javax.servlet.http.HttpSession;
 
@@ -51,16 +51,11 @@ public class ScheduleController {
 
     @PostMapping("/save")
     public String save(@ModelAttribute Ticket ticket, Model model) {
-        try {
-            if (!ticketService.save(ticket)) {
-                model.addAttribute("message", "Извините, указанное место занято");
-                return "message/message";
-            }
-            model.addAttribute("message", "Билет успешно приобретен");
-            return "message/message";
-        } catch (Exception exception) {
-            model.addAttribute("message", exception.getMessage());
-            return "errors/404";
+        if (!ticketService.save(ticket)) {
+            model.addAttribute("message", "Извините, указанное место занято");
+            return "errors/409";
         }
+        model.addAttribute("message", "Билет успешно приобретен");
+        return "errors/409";
     }
 }

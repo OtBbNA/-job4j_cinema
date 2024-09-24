@@ -4,6 +4,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.sql2o.Sql2o;
 import ru.job4j.cinema.configuration.DatasourceConfiguration;
+import ru.job4j.cinema.repository.genre.Sql2oGenreRepository;
+import ru.job4j.cinema.repository.user.Sql2oUserRepository;
 
 import java.util.Properties;
 

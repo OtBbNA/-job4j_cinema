@@ -8,6 +8,8 @@ import org.sql2o.Sql2o;
 import org.sql2o.Sql2oException;
 import ru.job4j.cinema.configuration.DatasourceConfiguration;
 import ru.job4j.cinema.model.Ticket;
+import ru.job4j.cinema.repository.ticket.Sql2oTicketRepository;
+import ru.job4j.cinema.repository.user.Sql2oUserRepository;
 
 import java.util.List;
 import java.util.Properties;
@@ -79,8 +81,8 @@ class Sql2OTicketRepositoryTest {
     @Test
     public void whenDeleteThenGetEmptyOptional() {
         var ticket = sql2oTicketRepository.save(new Ticket(1, 1, 5, 15, 1));
-        sql2oTicketRepository.deleteById(ticket.getId());
-        var savedTicket = sql2oTicketRepository.findById(ticket.getId());
+        sql2oTicketRepository.deleteById(ticket.get().getId());
+        var savedTicket = sql2oTicketRepository.findById(ticket.get().getId());
         assertThat(savedTicket).isEqualTo(empty());
     }
 
